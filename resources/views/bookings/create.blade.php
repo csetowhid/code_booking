@@ -16,6 +16,12 @@
                                 <div class="p-6 bg-white border-b border-gray-200">
                                     <form method="POST" action="{{ route('bookings.store') }}">
                                         @csrf
+
+                                        <div>
+                                            <x-label for="date" :value="__('Date')" />
+                            
+                                            <x-input id="date" class="block mt-1" type="date" name="date" required />
+                                        </div>
                                         <!-- Name -->
                                         <div>
                                             <x-label for="name" :value="__('Start Time ')" />

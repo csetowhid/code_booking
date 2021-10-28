@@ -43,6 +43,7 @@ class BookingController extends Controller
             $booking = Booking::create([
                     'table_id' => $request->get('table_id'),
                     'user_id' => Auth::user()->id,
+                    'date' => $request->get('date'),
                     'start_time' => $request->get('start_time'),
                     'end_time' => $request->get('end_time'),
             ]);
@@ -55,6 +56,7 @@ class BookingController extends Controller
                 $booking = Booking::create([
                     'table_id' => $request->get('table_id'),
                     'user_id' => Auth::user()->id,
+                    'date' => $request->get('date'),
                     'start_time' => $request->get('start_time'),
                     'end_time' => $request->get('end_time'),
             ]);

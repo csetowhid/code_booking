@@ -19,6 +19,7 @@ class CreateBookingsTable extends Migration
             $table->unsignedBigInteger('table_id');
             $table->time('start_time');
             $table->time('end_time');
+            $table->date('date');
             $table->boolean('status')->default(0);
             $table->timestamps();
 

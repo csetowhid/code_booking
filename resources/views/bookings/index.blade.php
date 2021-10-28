@@ -62,6 +62,9 @@
                                                   Table Name
                                               </th>
                                               <th class="px-6 py-2 text-xs text-gray-500">
+                                                Date
+                                            </th>
+                                              <th class="px-6 py-2 text-xs text-gray-500">
                                                   Start Time
                                               </th>
                                               <th class="px-6 py-2 text-xs text-gray-500">
@@ -82,6 +85,9 @@
                                                 {{$book->tableName->name}}
                                             </td>
                                             <td class="px-6 py-4 text-sm text-gray-500">
+                                                {{$book->date}}
+                                            </td>
+                                            <td class="px-6 py-4 text-sm text-gray-500">
                                                 {{$book->start_time}}
                                             </td>
                                             <td class="px-6 py-4 text-sm text-gray-500">
@@ -90,7 +96,15 @@
                                             
                                                 @if ($currentTime = date('H:i:s') < $book->end_time)
                                                 <td class="px-6 py-4 text-sm text-red-500">
-                                                    Running
+                                                    {{-- Remaining {{$book->end_time}} --}}
+                                                    {{-- Remaining {{$book->end_time}} --}}
+                                                    @php
+                                                $d1 = strtotime($currentTime = date('H:i:s'));
+                                                $d2 = strtotime($book->end_time);
+                                                $totalSecondsDiff = abs($d1-$d2);
+                                                $totalMinutesDiff = $totalSecondsDiff/60;
+                                                    @endphp
+                                                    {{round($totalMinutesDiff)}} Min Remaning
                                                 </td>
                                                 @else
                                                 <td class="px-6 py-4 text-sm text-green-500 rounded">
